@@ -1,4 +1,5 @@
 <resources>
     <bitmap id="BatteryIconBitMap" filename="drawables/icons/battery.png"/>
     <bitmap id="BatteryIconBitMap2" filename="drawables/icons/battery2.png"/>
+    <bitmap id="clock" filename="drawables/icons/clock.png"/>
 </resources>

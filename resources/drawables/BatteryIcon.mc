@@ -5,25 +5,35 @@ using Toybox.WatchUi;
 class BatteryIcon extends WatchUi.Drawable  {
 
     var myBitmap;
+    var posXpercent;
+    var posYpercent;
+
     var posX;
     var posY;
 
     function initialize(params) {
         Drawable.initialize(params);
 
-        posX = params.get(:posX);
-        posY = params.get(:posY);
+        posXpercent = params.get(:posX);
+        posYpercent = params.get(:posY);
 
         myBitmap = new WatchUi.Bitmap({
-            :rezId=>Rez.Drawables.BatteryIconBitMap,
-            :locX=>posX,
-            :locY=>posY
-        });        
+            :rezId=>Rez.Drawables.BatteryIconBitMap
+        });
+   
     }
 
     // Update the view
     function draw(dc) {
-        myBitmap.draw(dc);      
+        var width = dc.getWidth();
+
+        posX = (dc.getWidth() * posXpercent) / 100;
+        posY = (dc.getHeight() * posYpercent) / 100;
+
+        myBitmap.setLocation(posX, posY);
+        myBitmap.draw(dc);
+
+        
     }
 
     // Change icon

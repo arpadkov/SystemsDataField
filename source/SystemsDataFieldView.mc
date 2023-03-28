@@ -5,12 +5,19 @@ import Toybox.WatchUi;
 
 class SystemsDataFieldView extends WatchUi.DataField {
 
-    hidden var mValue as Numeric;
+    hidden var batteryState as Numeric;
+    var hours as Numeric;
+    var minutes as Numeric;
+
     var obsVal as Numeric;
 
     function initialize() {
         DataField.initialize();
-        mValue = 0.0f;
+
+        batteryState = 0.0f;
+        hours = 0.0f;
+        minutes = 0.0f;
+
         obsVal = 0.0f;
     }
 
@@ -25,38 +32,42 @@ class SystemsDataFieldView extends WatchUi.DataField {
         }
 
         // Bottom Layout
-        if (obscurityFlags == (OBSCURE_RIGHT | OBSCURE_LEFT | OBSCURE_BOTTOM)) {
+        else if (obscurityFlags == (OBSCURE_RIGHT | OBSCURE_LEFT | OBSCURE_BOTTOM)) {
             View.setLayout(Rez.Layouts.BottomLayout(dc));
         }
 
         // Side Layout
-        if ((obscurityFlags == OBSCURE_RIGHT) || (obscurityFlags == OBSCURE_LEFT)) {
+        else if ((obscurityFlags == OBSCURE_RIGHT) || (obscurityFlags == OBSCURE_LEFT)) {
             View.setLayout(Rez.Layouts.SideLayout(dc));
         }
 
         // Top left quadrant so we'll use the top left layout
-        if (obscurityFlags == (OBSCURE_TOP | OBSCURE_LEFT)) {
+        else if (obscurityFlags == (OBSCURE_TOP | OBSCURE_LEFT)) {
             View.setLayout(Rez.Layouts.TopLeftLayout(dc));
+        }
 
         // Top right quadrant so we'll use the top right layout
-        } else if (obscurityFlags == (OBSCURE_TOP | OBSCURE_RIGHT)) {
+        else if (obscurityFlags == (OBSCURE_TOP | OBSCURE_RIGHT)) {
             View.setLayout(Rez.Layouts.TopRightLayout(dc));
+        }
 
         // Bottom left quadrant so we'll use the bottom left layout
-        } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_LEFT)) {
+        else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_LEFT)) {
             View.setLayout(Rez.Layouts.BottomLeftLayout(dc));
+        }
 
         // Bottom right quadrant so we'll use the bottom right layout
-        } else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_RIGHT)) {
+        else if (obscurityFlags == (OBSCURE_BOTTOM | OBSCURE_RIGHT)) {
             View.setLayout(Rez.Layouts.BottomRightLayout(dc));
+        }
 
         // Use the generic, centered layout
-        } else {
+        else {
             View.setLayout(Rez.Layouts.MainLayout(dc));
             // var labelView = View.findDrawableById("label");
             // labelView.locY = labelView.locY - 16;
-            var valueView = View.findDrawableById("value");
-            valueView.locY = valueView.locY + 7;
+            // var valueView = View.findDrawableById("batteryStateLabel");
+            // valueView.locY = valueView.locY + 7;
         }
 
         //(View.findDrawableById("label") as Text).setText(Rez.Strings.label);
@@ -70,13 +81,18 @@ class SystemsDataFieldView extends WatchUi.DataField {
     // guarantee that compute() will be called before onUpdate().
     function compute(info as Activity.Info) as Void {
         // See Activity.Info in the documentation for available information.
-        if(info has :currentHeartRate){
-            if(info.currentHeartRate != null){
-                mValue = info.currentHeartRate as Number;
-            } else {
-                mValue = 0.0f;
-            }
-        }
+
+        batteryState = System.getSystemStats().battery;
+        hours = System.getClockTime().hour;
+        minutes = System.getClockTime().min;
+
+        // if(info has :currentHeartRate){
+        //     if(info.currentHeartRate != null){
+        //         batteryState = info.currentHeartRate as Number;
+        //     } else {
+        //         batteryState = 0.0f;
+        //     }
+        // }
 
         
     }
@@ -87,18 +103,28 @@ class SystemsDataFieldView extends WatchUi.DataField {
         // Set the background color
         (View.findDrawableById("Background") as Text).setColor(getBackgroundColor());
 
-        // Set the foreground color and value
-        var value = View.findDrawableById("value") as Text;
+        // Set the foreground color and value for batteryStateLabel
+        var batteryStateLabel = View.findDrawableById("batteryStateLabel") as Text;
         if (getBackgroundColor() == Graphics.COLOR_BLACK) {
-            value.setColor(Graphics.COLOR_WHITE);
+            batteryStateLabel.setColor(Graphics.COLOR_WHITE);
         } else {
-            value.setColor(Graphics.COLOR_BLACK);
+            batteryStateLabel.setColor(Graphics.COLOR_BLACK);
         }
-        value.setText(obsVal.format("%.2f"));
+        // batteryStateLabel.setText(batteryState.format("%.0f") + "%");
+        batteryStateLabel.setText(batteryState.format("%.0f"));
+
+        // Set the foreground color and value for timeLabel
+        // var timeLabel = View.findDrawableById("timeLabel") as Text;
+        // if (getBackgroundColor() == Graphics.COLOR_BLACK) {
+        //     timeLabel.setColor(Graphics.COLOR_WHITE);
+        // } else {
+        //     timeLabel.setColor(Graphics.COLOR_BLACK);
+        // }
+        // timeLabel.setText(hours.format("%02d") + ":" + minutes.format("%02d"));
 
         // Change battery icon
-        var battery_icon = (findDrawableById("battery_bitmap_class") as BatteryIcon);
-        battery_icon.changeIcon();
+        // var battery_icon = (findDrawableById("battery_bitmap_class") as BatteryIcon);
+        // battery_icon.changeIcon();
 
         // Call parent's onUpdate(dc) to redraw the layout
         View.onUpdate(dc);
