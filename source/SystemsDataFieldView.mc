@@ -6,16 +6,33 @@ import Toybox.WatchUi;
 class SystemsDataFieldView extends WatchUi.DataField {
 
     hidden var mValue as Numeric;
+    var obsVal as Numeric;
 
     function initialize() {
         DataField.initialize();
         mValue = 0.0f;
+        obsVal = 0.0f;
     }
 
     // Set your layout here. Anytime the size of obscurity of
     // the draw context is changed this will be called.
     function onLayout(dc as Dc) as Void {
         var obscurityFlags = DataField.getObscurityFlags();
+
+        // Top Layout
+        if (obscurityFlags == (OBSCURE_RIGHT | OBSCURE_LEFT | OBSCURE_TOP)) {
+            View.setLayout(Rez.Layouts.TopLayout(dc));
+        }
+
+        // Bottom Layout
+        if (obscurityFlags == (OBSCURE_RIGHT | OBSCURE_LEFT | OBSCURE_BOTTOM)) {
+            View.setLayout(Rez.Layouts.BottomLayout(dc));
+        }
+
+        // Side Layout
+        if ((obscurityFlags == OBSCURE_RIGHT) || (obscurityFlags == OBSCURE_LEFT)) {
+            View.setLayout(Rez.Layouts.SideLayout(dc));
+        }
 
         // Top left quadrant so we'll use the top left layout
         if (obscurityFlags == (OBSCURE_TOP | OBSCURE_LEFT)) {
@@ -36,13 +53,15 @@ class SystemsDataFieldView extends WatchUi.DataField {
         // Use the generic, centered layout
         } else {
             View.setLayout(Rez.Layouts.MainLayout(dc));
-            var labelView = View.findDrawableById("label");
-            labelView.locY = labelView.locY - 16;
+            // var labelView = View.findDrawableById("label");
+            // labelView.locY = labelView.locY - 16;
             var valueView = View.findDrawableById("value");
             valueView.locY = valueView.locY + 7;
         }
 
-        (View.findDrawableById("label") as Text).setText(Rez.Strings.label);
+        //(View.findDrawableById("label") as Text).setText(Rez.Strings.label);
+
+        obsVal = DataField.getObscurityFlags() as Numeric;
     }
 
     // The given info object contains all the current workout information.
@@ -58,6 +77,8 @@ class SystemsDataFieldView extends WatchUi.DataField {
                 mValue = 0.0f;
             }
         }
+
+        
     }
 
     // Display the value you computed here. This will be called
@@ -73,7 +94,7 @@ class SystemsDataFieldView extends WatchUi.DataField {
         } else {
             value.setColor(Graphics.COLOR_BLACK);
         }
-        value.setText(mValue.format("%.2f"));
+        value.setText(obsVal.format("%.2f"));
 
         // Change battery icon
         var battery_icon = (findDrawableById("battery_bitmap_class") as BatteryIcon);
