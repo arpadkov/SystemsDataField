@@ -25,7 +25,7 @@ class BatteryIcon extends WatchUi.Drawable  {
 
     // Update the view
     function draw(dc) {
-        var width = dc.getWidth();
+        // var width = dc.getWidth();
 
         posX = (dc.getWidth() * posXpercent) / 100;
         posY = (dc.getHeight() * posYpercent) / 100;

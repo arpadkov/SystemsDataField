@@ -114,8 +114,8 @@ class SystemsDataFieldView extends WatchUi.DataField {
         batteryStateLabel.setText(batteryState.format("%.0f"));
 
 
-        var timeDisplay = View.findDrawableById("timeDisplay") as TimeDisplay;
-        timeDisplay.setTime(System.getClockTime());
+        // var timeDisplay = View.findDrawableById("timeDisplay") as TimeDisplay;
+        // timeDisplay.setTime(System.getClockTime());
 
         // Set the foreground color and value for timeLabel
         // var timeLabel = View.findDrawableById("timeLabel") as Text;
