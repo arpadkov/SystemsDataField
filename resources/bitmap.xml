@@ -1,5 +1,8 @@
 <resources>
     <bitmap id="BatteryIconBitMap" filename="drawables/icons/battery.png"/>
     <bitmap id="BatteryIconBitMap2" filename="drawables/icons/battery2.png"/>
-    <bitmap id="clock" filename="drawables/icons/clock.png"/>
+    <bitmap id="clock_20" filename="drawables/icons/clock/clock_20x20.png"/>
+    <bitmap id="clock_30" filename="drawables/icons/clock/clock_30x30.png"/>
+    <bitmap id="clock_40" filename="drawables/icons/clock/clock_40x40.png"/>
+    <bitmap id="clock_60" filename="drawables/icons/clock/clock_60x60.png"/>
 </resources>

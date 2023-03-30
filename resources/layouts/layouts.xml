@@ -7,7 +7,9 @@
         <drawable id="timeDisplay" class="TimeDisplay">
             <param name="posX">50</param>
             <param name="posY">70</param>
-            <param name="font">2</param>
+            <param name="spacing">0</param>
+            <param name="font">3</param>
+            <param name="iconSize">20</param>
         </drawable>
         <drawable id="battery_bitmap_class" class="BatteryIcon">
             <param name="posX">20</param>
@@ -22,12 +24,14 @@
         <!--label id="timeLabel" x="center" y="center" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SMALL" /--> 
         <drawable id="timeDisplay" class="TimeDisplay">
             <param name="posX">50</param>
-            <param name="posY">35</param>
-            <param name="font">6</param>
+            <param name="posY">10</param>
+            <param name="spacing">0</param>
+            <param name="font">3</param>
+            <param name="iconSize">20</param>
         </drawable>
         <drawable id="battery_bitmap_class" class="BatteryIcon">
-            <param name="posX">80</param>
-            <param name="posY">10</param>
+            <param name="posX">30</param>
+            <param name="posY">50</param>
         </drawable>
     </layout>
     <layout id="BottomLayout">
