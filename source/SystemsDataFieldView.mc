@@ -82,9 +82,9 @@ class SystemsDataFieldView extends WatchUi.DataField {
     function compute(info as Activity.Info) as Void {
         // See Activity.Info in the documentation for available information.
 
-        batteryState = System.getSystemStats().battery;
-        hours = System.getClockTime().hour;
-        minutes = System.getClockTime().min;
+        // batteryState = System.getSystemStats().battery;
+        // hours = System.getClockTime().hour;
+        // minutes = System.getClockTime().min;
 
         // if(info has :currentHeartRate){
         //     if(info.currentHeartRate != null){
@@ -111,7 +111,7 @@ class SystemsDataFieldView extends WatchUi.DataField {
             batteryStateLabel.setColor(Graphics.COLOR_BLACK);
         }
         // batteryStateLabel.setText(batteryState.format("%.0f") + "%");
-        batteryStateLabel.setText(batteryState.format("%.0f"));
+        // batteryStateLabel.setText(batteryState.format("%.0f"));
 
 
         // var timeDisplay = View.findDrawableById("timeDisplay") as TimeDisplay;

@@ -10,9 +10,11 @@
             <param name="spacing">0</param>
             <param name="size">4</param>
         </drawable>
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
-            <param name="posX">20</param>
-            <param name="posY">20</param>
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
+            <param name="posX">30</param>
+            <param name="posY">40</param>
+            <param name="spacing">0</param>
+            <param name="size">4</param>
         </drawable>
     </layout>
 
@@ -27,9 +29,11 @@
             <param name="spacing">0</param>
             <param name="size">2</param>
         </drawable>
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
             <param name="posX">30</param>
             <param name="posY">50</param>
+            <param name="spacing">0</param>
+            <param name="size">2</param>
         </drawable>
     </layout>
     <layout id="BottomLayout">
@@ -42,9 +46,11 @@
             <param name="spacing">0</param>
             <param name="size">2</param>
         </drawable>
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
             <param name="posX">50</param>
             <param name="posY">50</param>
+            <param name="spacing">0</param>
+            <param name="size">2</param>
         </drawable>
     </layout>
 
@@ -59,7 +65,7 @@
             <param name="spacing">0</param>
             <param name="size">4</param>
         </drawable>
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
             <param name="posX">40</param>
             <param name="posY">20</param>
         </drawable>
@@ -69,7 +75,7 @@
     <layout id="TopLeftLayout">
         <drawable class="Background" />
         <label id="batteryStateLabel" x="95" y="42" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
             <param name="posX">80</param>
             <param name="posY">30</param>
         </drawable>
@@ -77,7 +83,7 @@
     <layout id="TopRightLayout">
         <drawable class="Background" />
         <label id="batteryStateLabel" x="14" y="42" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
             <param name="posX">50</param>
             <param name="posY">50</param>
         </drawable>
@@ -85,7 +91,7 @@
     <layout id="BottomLeftLayout">
         <drawable class="Background" />
         <label id="batteryStateLabel" x="95" y="27" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
             <param name="posX">50</param>
             <param name="posY">50</param>
         </drawable>
@@ -93,7 +99,7 @@
     <layout id="BottomRightLayout">
         <drawable class="Background" />
         <label id="batteryStateLabel" x="14" y="27" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryIcon">
+        <drawable id="battery_bitmap_class" class="BatteryDisplay">
             <param name="posX">50</param>
             <param name="posY">50</param>
         </drawable>
