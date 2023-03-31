@@ -7,18 +7,12 @@ class TimeDisplay extends WatchUi.Drawable  {
     hidden var clockIcon;
     hidden var text;
 
-    hidden var minutes;
-    hidden var hours;
-
     hidden var posXpercent;
     hidden var posYpercent;
     hidden var spacing;
+    hidden var size;
 
-    hidden var posXclock;
-    hidden var posYclock;
-
-    hidden var font;
-
+    hidden var textHeight;
 
     function initialize(params) {
         Drawable.initialize(params);
@@ -26,60 +20,60 @@ class TimeDisplay extends WatchUi.Drawable  {
         posXpercent = params.get(:posX);
         posYpercent = params.get(:posY);
         spacing = params.get(:spacing);
-        font = params.get(:font) as Graphics.FontReference;     // fonts: https://developer.garmin.com/connect-iq/api-docs/Toybox/Graphics.html
-        
-        var iconSize = params.get(:iconSize);
+        size = params.get(:size);
 
         text = new WatchUi.Text({
             :text=>"",
             :color=>Graphics.COLOR_BLACK,
-            :font=>font
-        });        
-
-        setClockIcon(iconSize);
+        });  
     }
 
     // Update the view
     function draw(dc) {
-        // text = new WatchUi.Text({
-        //     :text=>"",
-        //     :color=>Graphics.COLOR_BLACK,
-        //     :font=>font
-        // }); 
-
         setTime(System.getClockTime());
-        positionClock(dc);
-        clockIcon.draw(dc); 
+        setSizes(size);
+        setPosition(dc);
 
-
-        positionText(); // Not working: height of text is only calculated after drawing it
+        clockIcon.draw(dc);
         text.draw(dc);
-        var x = 5;
+    }
+
+    function setSizes(size) {
+        // fonts: https://developer.garmin.com/connect-iq/api-docs/Toybox/Graphics.html
+        if (size == 1) {
+            text.setFont(1 as Graphics.FontReference);
+            textHeight = 26;
+            setClockIcon(20);
+        }
+        else if (size == 2) {
+            text.setFont(2 as Graphics.FontReference);
+            textHeight = 29;
+            setClockIcon(20);
+        }
+        else if (size == 3) {
+            text.setFont(2 as Graphics.FontReference);
+            textHeight = 34;
+            setClockIcon(40);
+        }
+        else if (size == 4) {
+            text.setFont(4 as Graphics.FontReference);
+            textHeight = 37;
+            setClockIcon(40);
+        }
     }
 
     function setTime(time) {
         text.setText(time.hour.format("%02d") +":" + time.min.format("%02d"));
     }
 
-    function positionClock(dc) {
-        posXclock = (dc.getWidth() * posXpercent) / 100;
-        posYclock = (dc.getHeight() * posYpercent) / 100;
+    function setPosition(dc) {
+        var posXclock = (dc.getWidth() * posXpercent) / 100;
+        var posYclock = (dc.getHeight() * posYpercent) / 100;
+
+        var posXtext = posXclock + spacing + clockIcon.width; 
+        var posYtext = posYclock + (clockIcon.height-textHeight) / 2;
 
         clockIcon.setLocation(posXclock, posYclock);
-    }
-
-    function positionText() {
-        var posXtext = posXclock + spacing + clockIcon.width;  
-
-        // var posYtext = posYclock + (clockIcon.height-text.height) / 2;
-        var h1 = clockIcon.height;
-        var h2 = text.height;
-        // var x = (h1-h2) / 2;
-        var x = (h2-h1) / 2;
-        var posYtext = posYclock + x;
-
-        // text.setText(posYpercent.format("%.0f"));
-        // text.setLocation(posXtext, posYtext);
         text.setLocation(posXtext, posYtext);
     }
 
