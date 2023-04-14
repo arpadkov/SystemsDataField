@@ -11,6 +11,7 @@ class BatteryDisplay extends WatchUi.Drawable  {
     var posYpercent;
     hidden var spacing;
     hidden var size;
+    hidden var color;
 
     hidden var textHeight;
 
@@ -24,7 +25,7 @@ class BatteryDisplay extends WatchUi.Drawable  {
 
         text = new WatchUi.Text({
             :text=>"",
-            :color=>Graphics.COLOR_BLACK,
+            // :color=>Graphics.COLOR_BLACK,
         });  
     }
 
@@ -33,39 +34,50 @@ class BatteryDisplay extends WatchUi.Drawable  {
         // var width = dc.getWidth();
         setBatteryState();
         setSizes(size);
+        text.setColor(color);
         setPosition(dc);
 
         batteryIcon.draw(dc);
         text.draw(dc);
     }
 
+    // Sets color based on background color
+    function setColor(backgroundColor)
+    {
+        if (backgroundColor == Graphics.COLOR_BLACK) {
+            color = Graphics.COLOR_WHITE;
+        } else {
+            color = Graphics.COLOR_BLACK;
+        }
+    }
+
+
     function setSizes(size) {
         // fonts: https://developer.garmin.com/connect-iq/api-docs/Toybox/Graphics.html
         if (size == 1) {
             text.setFont(1 as Graphics.FontReference);
             textHeight = 26;
-            setBatteryIcon(20);
+            setBatteryIcon();
         }
         else if (size == 2) {
             text.setFont(2 as Graphics.FontReference);
             textHeight = 29;
-            setBatteryIcon(20);
+            setBatteryIcon();
         }
         else if (size == 3) {
             text.setFont(2 as Graphics.FontReference);
             textHeight = 34;
-            setBatteryIcon(40);
+            setBatteryIcon();
         }
         else if (size == 4) {
             text.setFont(4 as Graphics.FontReference);
             textHeight = 37;
-            setBatteryIcon(40);
+            setBatteryIcon();
         }
     }
 
     function setBatteryState() {
         text.setText(System.getSystemStats().battery.format("%.0f") + "%");
-        var x =5;
     }
 
      function setPosition(dc) {
@@ -79,18 +91,13 @@ class BatteryDisplay extends WatchUi.Drawable  {
         text.setLocation(posXtext, posYtext);
     }
 
-    function setBatteryIcon(iconSize) {
-        if (iconSize == 60) {
-            batteryIcon = new WatchUi.Bitmap({ :rezId=>Rez.Drawables.clock_60 });
+    function setBatteryIcon() {
+        if (color == Graphics.COLOR_BLACK) {
+            batteryIcon = new WatchUi.Bitmap({ :rezId=>Rez.Drawables.battery_black });
         }
-        else if (iconSize == 40) {
-            batteryIcon = new WatchUi.Bitmap({ :rezId=>Rez.Drawables.clock_40 });
-        }
-        else if (iconSize == 30) {
-            batteryIcon = new WatchUi.Bitmap({ :rezId=>Rez.Drawables.clock_30 });
-        }
+
         else {
-            batteryIcon = new WatchUi.Bitmap({ :rezId=>Rez.Drawables.clock_20 });
+            batteryIcon = new WatchUi.Bitmap({ :rezId=>Rez.Drawables.battery_white });
         }
     }
 

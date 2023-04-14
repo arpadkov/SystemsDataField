@@ -1,13 +1,10 @@
 <resources>
-    <bitmap id="BatteryIconBitMap" filename="drawables/icons/battery.png"/>
-    <bitmap id="BatteryIconBitMap2" filename="drawables/icons/battery2.png"/>
-    <bitmap id="clock_20" filename="drawables/icons/clock/clock_20x20.png"/>
-    <bitmap id="clock_30" filename="drawables/icons/clock/clock_30x30.png"/>
-    <bitmap id="clock_40" filename="drawables/icons/clock/clock_40x40.png"/>
-    <bitmap id="clock_60" filename="drawables/icons/clock/clock_60x60.png"/>
 
-    <bitmap id="clock_small_black" filename="drawables/icons/clock/clock_26_black.png"/>
-    <bitmap id="clock_big_black" filename="drawables/icons/clock/clock_37_black.png"/>
-    <bitmap id="clock_small_white" filename="drawables/icons/clock/clock_26_white.png"/>
-    <bitmap id="clock_big_white" filename="drawables/icons/clock/clock_37_white.png"/>
+    <bitmap id="clock_small_black" filename="drawables/icons/clock/clock_20_black.png"/>
+    <bitmap id="clock_big_black" filename="drawables/icons/clock/clock_26_black.png"/>
+    <bitmap id="clock_small_white" filename="drawables/icons/clock/clock_20_white.png"/>
+    <bitmap id="clock_big_white" filename="drawables/icons/clock/clock_26_white.png"/>
+
+    <bitmap id="battery_white" filename="drawables/icons/battery/battery_white.png"/>
+    <bitmap id="battery_black" filename="drawables/icons/battery/battery_black.png"/>
 </resources>

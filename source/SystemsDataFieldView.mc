@@ -36,9 +36,14 @@ class SystemsDataFieldView extends WatchUi.DataField {
             View.setLayout(Rez.Layouts.BottomLayout(dc));
         }
 
-        // Side Layout
-        else if ((obscurityFlags == OBSCURE_RIGHT) || (obscurityFlags == OBSCURE_LEFT)) {
-            View.setLayout(Rez.Layouts.SideLayout(dc));
+        // Left Layout
+        else if (obscurityFlags == OBSCURE_LEFT) {
+            View.setLayout(Rez.Layouts.LeftLayout(dc));
+        }
+
+        // Right Layout
+        else if (obscurityFlags == OBSCURE_RIGHT) {
+            View.setLayout(Rez.Layouts.RightLayout(dc));
         }
 
         // Top left quadrant so we'll use the top left layout
@@ -82,6 +87,13 @@ class SystemsDataFieldView extends WatchUi.DataField {
     function compute(info as Activity.Info) as Void {
         // See Activity.Info in the documentation for available information.
 
+        var gpsStrengthDisplay = View.findDrawableById("gpsStrengthDisplay") as GpsStrengthDisplay;
+        var strength = info.currentLocationAccuracy as Lang.Number;
+        if (strength) {
+            // gpsStrengthDisplay.setSignalStrength(info.currentLocationAccuracy);
+        }
+        
+
         // batteryState = System.getSystemStats().battery;
         // hours = System.getClockTime().hour;
         // minutes = System.getClockTime().min;
@@ -121,6 +133,12 @@ class SystemsDataFieldView extends WatchUi.DataField {
         var timeDisplay = View.findDrawableById("timeDisplay") as TimeDisplay;
         timeDisplay.setColor(getBackgroundColor());
         // timeLabel.setText(hours.format("%02d") + ":" + minutes.format("%02d"));
+
+        var batteryDisplay = View.findDrawableById("batteryDisplay") as BatteryDisplay;
+        batteryDisplay.setColor(getBackgroundColor());
+
+        var gpsStrengthDisplay = View.findDrawableById("gpsStrengthDisplay") as GpsStrengthDisplay;
+        gpsStrengthDisplay.setColor(getBackgroundColor());
 
         // Change battery icon
         // var battery_icon = (findDrawableById("battery_bitmap_class") as BatteryIcon);

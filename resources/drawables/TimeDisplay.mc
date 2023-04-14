@@ -38,7 +38,6 @@ class TimeDisplay extends WatchUi.Drawable  {
 
         clockIcon.draw(dc);
         text.draw(dc);
-        var x = 5;
     }
 
     // Sets color based on background color

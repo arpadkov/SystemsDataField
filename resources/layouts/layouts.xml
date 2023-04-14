@@ -2,105 +2,211 @@
     <!-- A generic, centered layout. -->
     <layout id="MainLayout">
         <drawable class="Background" />      
-        <!--label id="batteryStateLabel" x="50%" y="0%" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SMALL" /--> 
-        <!--label id="timeLabel" x="50%" y="80%" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SMALL" /--> 
         <drawable id="timeDisplay" class="TimeDisplay">
             <param name="posX">30</param>
-            <param name="posY">20</param>
+            <param name="posY">15</param>
             <param name="spacing">0</param>
             <param name="size">4</param>
         </drawable>
         <drawable id="batteryDisplay" class="BatteryDisplay">
-            <param name="posX">30</param>
-            <param name="posY">40</param>
-            <param name="spacing">0</param>
+            <param name="posX">20</param>
+            <param name="posY">60</param>
+            <param name="spacing">2</param>
             <param name="size">4</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">55</param>
+            <param name="posY">50</param>
+            <param name="spacing">3</param>
+            <param name="heightIncrement">7</param>
+            <param name="width">7</param>
         </drawable>
     </layout>
 
     <!-- Layouts used for the top and bottom fields. -->
     <layout id="TopLayout">
-        <drawable class="Background" />
-        <!--label id="timeLabel" x="center" y="center" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SMALL" /--> 
+        <drawable class="Background" />      
         <drawable id="timeDisplay" class="TimeDisplay">
-            <param name="posX">30</param>
+            <param name="posX">35</param>
             <param name="posY">15</param>
             <param name="spacing">0</param>
             <param name="size">1</param>
         </drawable>
         <drawable id="batteryDisplay" class="BatteryDisplay">
-            <param name="posX">30</param>
-            <param name="posY">50</param>
-            <param name="spacing">0</param>
-            <param name="size">2</param>
+            <param name="posX">28</param>
+            <param name="posY">60</param>
+            <param name="spacing">2</param>
+            <param name="size">1</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">58</param>
+            <param name="posY">55</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
         </drawable>
     </layout>
+
     <layout id="BottomLayout">
-        <drawable class="Background" />
-        
-        <!--label id="timeLabel" x="center" y="center" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SMALL" /--> 
+        <drawable class="Background" />         
         <drawable id="timeDisplay" class="TimeDisplay">
-            <param name="posX">30</param>
-            <param name="posY">5</param>
+            <param name="posX">35</param>
+            <param name="posY">55</param>
             <param name="spacing">0</param>
-            <param name="size">2</param>
+            <param name="size">1</param>
         </drawable>
         <drawable id="batteryDisplay" class="BatteryDisplay">
-            <param name="posX">50</param>
-            <param name="posY">50</param>
-            <param name="spacing">0</param>
-            <param name="size">2</param>
+            <param name="posX">28</param>
+            <param name="posY">15</param>
+            <param name="spacing">2</param>
+            <param name="size">1</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">58</param>
+            <param name="posY">12</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
         </drawable>
     </layout>
 
     <!-- Layouts used for side fields. -->
-    <layout id="SideLayout">
-        <drawable class="Background" />
-        <label id="batteryStateLabel" x="95" y="42" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_SMALL" />
-        <!--label id="timeLabel" x="center" y="center" justification="Graphics.TEXT_JUSTIFY_CENTER" font="Graphics.FONT_SMALL" /--> 
+    <layout id="LeftLayout">
+        <drawable class="Background" />         
         <drawable id="timeDisplay" class="TimeDisplay">
-            <param name="posX">50</param>
-            <param name="posY">50</param>
+            <param name="posX">35</param>
+            <param name="posY">55</param>
             <param name="spacing">0</param>
-            <param name="size">4</param>
+            <param name="size">1</param>
         </drawable>
-        <drawable id="battery_bitmap_class" class="BatteryDisplay">
-            <param name="posX">40</param>
-            <param name="posY">20</param>
+        <drawable id="batteryDisplay" class="BatteryDisplay">
+            <param name="posX">20</param>
+            <param name="posY">15</param>
+            <param name="spacing">2</param>
+            <param name="size">1</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">75</param>
+            <param name="posY">12</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
+        </drawable>
+    </layout>
+    <layout id="RightLayout">
+        <drawable class="Background" />         
+        <drawable id="timeDisplay" class="TimeDisplay">
+            <param name="posX">5</param>
+            <param name="posY">55</param>
+            <param name="spacing">0</param>
+            <param name="size">1</param>
+        </drawable>
+        <drawable id="batteryDisplay" class="BatteryDisplay">
+            <param name="posX">5</param>
+            <param name="posY">15</param>
+            <param name="spacing">2</param>
+            <param name="size">1</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">60</param>
+            <param name="posY">12</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
         </drawable>
     </layout>
 
     <!-- Layouts used for the for the four quadrants. -->
     <layout id="TopLeftLayout">
-        <drawable class="Background" />
-        <label id="batteryStateLabel" x="95" y="42" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryDisplay">
-            <param name="posX">80</param>
-            <param name="posY">30</param>
+        <drawable class="Background" />         
+        <drawable id="timeDisplay" class="TimeDisplay">
+            <param name="posX">35</param>
+            <param name="posY">40</param>
+            <param name="spacing">0</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="batteryDisplay" class="BatteryDisplay">
+            <param name="posX">15</param>
+            <param name="posY">75</param>
+            <param name="spacing">2</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">75</param>
+            <param name="posY">75</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
         </drawable>
     </layout>
+
     <layout id="TopRightLayout">
-        <drawable class="Background" />
-        <label id="batteryStateLabel" x="14" y="42" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryDisplay">
-            <param name="posX">50</param>
-            <param name="posY">50</param>
+        <drawable class="Background" />         
+        <drawable id="timeDisplay" class="TimeDisplay">
+            <param name="posX">5</param>
+            <param name="posY">40</param>
+            <param name="spacing">0</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="batteryDisplay" class="BatteryDisplay">
+            <param name="posX">5</param>
+            <param name="posY">75</param>
+            <param name="spacing">2</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">65</param>
+            <param name="posY">75</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
         </drawable>
     </layout>
+
     <layout id="BottomLeftLayout">
-        <drawable class="Background" />
-        <label id="batteryStateLabel" x="95" y="27" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_RIGHT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryDisplay">
-            <param name="posX">50</param>
-            <param name="posY">50</param>
+        <drawable class="Background" />         
+        <drawable id="timeDisplay" class="TimeDisplay">
+            <param name="posX">35</param>
+            <param name="posY">45</param>
+            <param name="spacing">0</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="batteryDisplay" class="BatteryDisplay">
+            <param name="posX">15</param>
+            <param name="posY">15</param>
+            <param name="spacing">2</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">75</param>
+            <param name="posY">12</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
         </drawable>
     </layout>
+
     <layout id="BottomRightLayout">
-        <drawable class="Background" />
-        <label id="batteryStateLabel" x="14" y="27" color="Graphics.COLOR_WHITE" justification="Graphics.TEXT_JUSTIFY_LEFT" font="Graphics.FONT_LARGE" />
-        <drawable id="battery_bitmap_class" class="BatteryDisplay">
-            <param name="posX">50</param>
-            <param name="posY">50</param>
+        <drawable class="Background" />         
+        <drawable id="timeDisplay" class="TimeDisplay">
+            <param name="posX">5</param>
+            <param name="posY">45</param>
+            <param name="spacing">0</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="batteryDisplay" class="BatteryDisplay">
+            <param name="posX">5</param>
+            <param name="posY">15</param>
+            <param name="spacing">2</param>
+            <param name="size">2</param>
+        </drawable>
+        <drawable id="gpsStrengthDisplay" class="GpsStrengthDisplay">
+            <param name="posX">65</param>
+            <param name="posY">12</param>
+            <param name="spacing">2</param>
+            <param name="heightIncrement">5</param>
+            <param name="width">5</param>
         </drawable>
     </layout>
+
 </layouts>
