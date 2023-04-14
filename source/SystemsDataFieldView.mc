@@ -90,7 +90,7 @@ class SystemsDataFieldView extends WatchUi.DataField {
         var gpsStrengthDisplay = View.findDrawableById("gpsStrengthDisplay") as GpsStrengthDisplay;
         var strength = info.currentLocationAccuracy as Lang.Number;
         if (strength) {
-            // gpsStrengthDisplay.setSignalStrength(info.currentLocationAccuracy);
+            gpsStrengthDisplay.setSignalStrength(info.currentLocationAccuracy);
         }
         
 
