@@ -5,4 +5,9 @@
     <bitmap id="clock_30" filename="drawables/icons/clock/clock_30x30.png"/>
     <bitmap id="clock_40" filename="drawables/icons/clock/clock_40x40.png"/>
     <bitmap id="clock_60" filename="drawables/icons/clock/clock_60x60.png"/>
+
+    <bitmap id="clock_small_black" filename="drawables/icons/clock/clock_26_black.png"/>
+    <bitmap id="clock_big_black" filename="drawables/icons/clock/clock_37_black.png"/>
+    <bitmap id="clock_small_white" filename="drawables/icons/clock/clock_26_white.png"/>
+    <bitmap id="clock_big_white" filename="drawables/icons/clock/clock_37_white.png"/>
 </resources>

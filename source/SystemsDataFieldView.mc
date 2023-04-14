@@ -104,12 +104,12 @@ class SystemsDataFieldView extends WatchUi.DataField {
         (View.findDrawableById("Background") as Text).setColor(getBackgroundColor());
 
         // Set the foreground color and value for batteryStateLabel
-        var batteryStateLabel = View.findDrawableById("batteryStateLabel") as Text;
-        if (getBackgroundColor() == Graphics.COLOR_BLACK) {
-            batteryStateLabel.setColor(Graphics.COLOR_WHITE);
-        } else {
-            batteryStateLabel.setColor(Graphics.COLOR_BLACK);
-        }
+        // var batteryStateLabel = View.findDrawableById("batteryStateLabel") as Text;
+        // if (getBackgroundColor() == Graphics.COLOR_BLACK) {
+        //     batteryStateLabel.setColor(Graphics.COLOR_WHITE);
+        // } else {
+        //     batteryStateLabel.setColor(Graphics.COLOR_BLACK);
+        // }
         // batteryStateLabel.setText(batteryState.format("%.0f") + "%");
         // batteryStateLabel.setText(batteryState.format("%.0f"));
 
@@ -117,13 +117,9 @@ class SystemsDataFieldView extends WatchUi.DataField {
         // var timeDisplay = View.findDrawableById("timeDisplay") as TimeDisplay;
         // timeDisplay.setTime(System.getClockTime());
 
-        // Set the foreground color and value for timeLabel
-        // var timeLabel = View.findDrawableById("timeLabel") as Text;
-        // if (getBackgroundColor() == Graphics.COLOR_BLACK) {
-        //     timeLabel.setColor(Graphics.COLOR_WHITE);
-        // } else {
-        //     timeLabel.setColor(Graphics.COLOR_BLACK);
-        // }
+        // Set the foreground color and value for timeDisplay
+        var timeDisplay = View.findDrawableById("timeDisplay") as TimeDisplay;
+        timeDisplay.setColor(getBackgroundColor());
         // timeLabel.setText(hours.format("%02d") + ":" + minutes.format("%02d"));
 
         // Change battery icon
